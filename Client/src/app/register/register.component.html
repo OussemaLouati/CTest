@@ -1,0 +1,93 @@
+<div class="container">
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <br>
+                <div class="row">
+                    <h1>Ajouter un nouveau candidat</h1>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <a routerLink="/liste-candidats" class="btn btn-info">Liste des candidats</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 "></div>
+            <div class="col-md-1 field-label-responsive">
+                <label for="name">type</label>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <select #type class="form-control">
+                            <option value="candidat">candidat</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <!-- Put name validation error messages here -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 "></div>
+            <div class="col-md-1 field-label-responsive">
+                <label for="email">E-Mail </label>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input type="text" name="email" #email class="form-control" id="email"
+                            placeholder="you@example.com" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        <!-- Put e-mail validation error messages here -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 "></div>
+            <div class="col-md-1 field-label-responsive">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input type="password" name="password" #password class="form-control" id="password"
+                            placeholder="Password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <!-- <span class="text-danger align-middle">
+                            <i class="fa fa-close"> Example Error Message</i>
+                        </span> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-7"></div>
+            <div class="col col-md-3 text-right">
+                <button (click)="onSubmit(type.value,email.value,password.value)" class="btn btn-primary"><i class="fa fa-user-plus"></i> Ajouter</button>
+            </div>
+        </div>
+    </form>
+</div>

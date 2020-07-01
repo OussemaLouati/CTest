@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 15px">
+  <h2>Liste des candidats</h2>
+  <br>
+  <div class="form-group">
+      <a routerLink="/register" class="btn btn-primary">Ajouter candidat</a>
+  </div>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of listeCandidats; let i = index">
+          <th scope="row">{{i+1}} </th>
+          <td>{{user.email}} </td>
+          <td>{{user.typeUser}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

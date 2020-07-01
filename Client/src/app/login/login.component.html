@@ -1,0 +1,47 @@
+<!--<div class="imgcontainer">
+    <img src="https://tsunamit.ca/wp-content/uploads/2018/09/Final-Concept-H.png" alt="tsunamit" class="tsunamit" style="width: 275px">
+  </div>
+<form #loginForm="ngForm" (ngSubmit)="login()" >
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <label for="email"><b>Email</b></label>
+            <input #email="ngModel" [(ngModel)]="user.email" name="email" type="text" placeholder="Enter email"  required>
+        
+            <label for="password"><b>Password</b></label>
+            <input #password="ngModel" [(ngModel)]="user.password" name="password" type="password" placeholder="Enter Password"  required>
+        
+            <div class="row">
+                <div class="col col-md-9"></div>
+                <div class="col col-md-3">
+                    <button type="submit" [disabled]="!loginForm.valid" >Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>
+
+-->
+
+
+
+
+<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+    <input type="text" class="fadeIn second" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+           [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+    <div *ngIf="signInForm.submitted && email.errors?.pattern">
+      <label class="validation-message">Invalid email address.</label>
+    </div>
+
+    <input type="password"  class="fadeIn third" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Mot de passe" required minlength="4"
+           [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+    <div *ngIf="signInForm.submitted && password.errors?.minlength">
+      <label class="validation-message">Minimum 6 characters.</label>
+    </div>
+    
+    <input type="submit" class="fadeIn fourth" value="Connexion">
+  </form>
+
+
+

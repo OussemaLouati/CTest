@@ -1,0 +1,12 @@
+npm i express
+npm i body-parser
+npm i mongoose
+npm install -g nodemon
+
+
+base de donnes : ts
+collection : persones
+//mongodb+srv://test:<password>@cluster0-ztw5x.mongodb.net/test?retryWrites=true&w=majority
+pass test 
+user test
+nodemon serveur.js

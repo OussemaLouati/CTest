@@ -1,0 +1,53 @@
+<div id="course-content" class="container question"  >
+        <div *ngIf="quiz.length > 0; else no_questions">
+                        <main>
+                                        <article>
+                                                <div class="Dashboard">
+                                                        <div class="CountdownGame">
+                                                          {{this.min}}:{{this.sec}}
+                                                        </div>
+                                                </div>
+                                        </article>
+                                        </main>
+                                        <div class="quiz-wrapper" *ngIf="quiz.length > 0 && quizPos < quiz.length">
+                                
+                                                <h2><b>Catégorie:</b> {{quiz[quizPos].categorie}} ({{quizPos+1}}/{{quiz.length}})</h2>
+                                
+                                                <h3> {{quiz[quizPos].question}} </h3>
+                                                <ul style="list-style: none;">
+                                                   <li *ngFor="let c of quiz[quizPos].choix" (change)="detecterRep($event, c.id)">
+                                                        <input type="checkbox"  [id]="c.id" [checked]="back == true && oldResponse(c.id)==true" >
+                                                                <label>{{c.choix}}</label>
+                                
+                                                   </li>
+                                                </ul>
+                                
+                                                <div class="row">
+                                                        <div class="col col-md-6"></div>
+                                
+                                
+                                                        <div class="col col-md-4 text-right">
+                                                                <button class="btn btn-info mr-2" (click)="pre()" [disabled]="quizPos == 0">
+                                                                        <span class="glyphicon glyphicon-envelope"></span>
+                                                                        Précident
+                                                                </button>
+                                                                <button class="btn btn-success" (click)="next()" [disabled]="reponseCandidat.length == 0" >
+                                                                        Suivant
+                                                                        <span class="glyphicon glyphicon-envelope"></span>
+                                                                </button>
+                                                        </div>
+                                                        <div class="col col-md-2">
+                                                                <button class="btn btn-danger ml-5" (click)="envoyerRes()">Terminer</button>
+                                                       </div>
+                                                </div>
+                                        </div>
+        </div>
+
+        <ng-template #no_questions>
+                        <div class="alert alert-danger" role="alert">
+                               Aucun question dans cette catégorie !
+                        </div>    
+        </ng-template>
+            
+</div>
+

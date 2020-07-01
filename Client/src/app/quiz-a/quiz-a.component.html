@@ -1,0 +1,61 @@
+<div class="container">
+    <br/> <br/>
+    <h2>Créer Question</h2>
+    <hr>
+    <form  #ajouterQuestionForm="ngForm" (ngSubmit)="ajouterQuestion()">
+       <div class="form-group">
+          <label class="control-label col-sm-offset-2 col-sm-2" for="company">Catégorie</label>
+          <div class="col-sm-7 col-md-7">
+             <select #categorie="ngModel" (ngModel)="nouveauQuestion.categorie" (ngModelChange)="changeState($event)" name="categorie" class="form-control" required>
+                <option ngValue="html">html</option>
+                <option ngValue="css">css</option>
+                <option ngValue="php">php</option>
+                <option ngValue="angular">angular</option>
+                <option ngValue="nodejs">nodeJs</option>
+             </select>
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="control-label col-sm-offset-2 col-sm-2" for="company">question</label>
+          <div class="col-sm-7 col-md-7">
+             <input #question="ngModel" [(ngModel)]="nouveauQuestion.question" type="text" name="question"  class="form-control" id="question" placeholder="Entrer un question ..." required>
+          </div>
+       </div>
+       <div class="custom-control">
+          <div class="col-sm-7 col-md-7">
+             <label >Réponse 1</label>
+             <input type="text" #choix1="ngModel" [(ngModel)]="nouveauQuestion.choix[0].choix" name="choix1" class="form-control" placeholder="Choix de réponse N 1" required>
+          </div>
+       </div>
+       <div class="custom-control">
+          <div class="col-sm-7 col-md-7">
+             <label >Réponse 2</label>
+             <input #choix2="ngModel" [(ngModel)]="nouveauQuestion.choix[1].choix" type="text" name="choix2" class="form-control"  placeholder="Choix de réponse N 2" required>
+          </div>
+       </div>
+       <div class="custom-control">
+          <div class="col-sm-7 col-md-7">
+             <label >Réponse 3</label>
+             <input #choix3="ngModel" [(ngModel)]="nouveauQuestion.choix[2].choix" type="text" name="choix3" class="form-control"   placeholder="Choix de réponse N 3" required>
+          </div>
+       </div>
+       <div class="custom-control">
+          <div class="col-sm-7 col-md-7">
+             <label >Réponse 4</label>
+             <input #choix4="ngModel" [(ngModel)]="nouveauQuestion.choix[3].choix" type="text" name="choix4" class="form-control"   placeholder="Choix de réponse N 4" required>
+          </div>
+       </div>
+       <br>
+       <label >Les réponses correctes</label>
+       <br>
+       <input type="checkbox" (change)="enregisterCorrectesReponse($event,1)"> Réponse 1
+       <input type="checkbox" (change)="enregisterCorrectesReponse($event,2)"> Réponse 2
+       <input type="checkbox" (change)="enregisterCorrectesReponse($event,3)"> Réponse 3
+       <input type="checkbox" (change)="enregisterCorrectesReponse($event,4)"> Réponse 4
+       <br> 
+       <br>
+       <div class="form-group">
+          <button class="btn btn-primary" [disabled]="!ajouterQuestionForm.valid">Créer Question</button>
+       </div>
+    </form>
+ </div>
